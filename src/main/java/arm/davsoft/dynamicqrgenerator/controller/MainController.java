@@ -2,7 +2,9 @@ package arm.davsoft.dynamicqrgenerator.controller;
 
 import arm.davsoft.dynamicqrgenerator.helpers.util.QRGenerator;
 import arm.davsoft.dynamicqrgenerator.model.Person;
+import arm.davsoft.dynamicqrgenerator.model.api.QRType;
 import arm.davsoft.dynamicqrgenerator.model.impl.QRTypeMeCard;
+import arm.davsoft.dynamicqrgenerator.model.impl.QRTypeURL;
 import com.google.zxing.WriterException;
 
 import javax.annotation.PostConstruct;
@@ -44,7 +46,8 @@ public class MainController {
 
     public String getImage() throws IOException, WriterException {
 //        return "data:image/png;base64,";
-        QRTypeMeCard data = new QRTypeMeCard()
+        QRType data;
+        data = new QRTypeMeCard()
                 .setName(person.getFirstName() + ' ' + person.getLastName())
                 .setPhone(person.getPhone())
                 .setCompany(person.getCompany())

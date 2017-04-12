@@ -1,0 +1,18 @@
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui" xmlns:pe="http://primefaces.org/ui/extensions">
+    <h:form enctype="multipart/form-data">
+        <h:panelGroup layout="block">
+            <nav class="sis-submenu-navigation">
+                <ul>
+                    <li><h:outputLink value="#">URL</h:outputLink></li>
+                    <li><h:outputLink value="#">Text</h:outputLink></li>
+                    <li><h:outputLink value="#">VCard</h:outputLink></li>
+                </ul>
+            </nav>
+            <h:panelGroup layout="block">
+                <ui:include src="forms/vCard.xhtml"/>
+            </h:panelGroup>
+        </h:panelGroup>
+    </h:form>
+</ui:composition>

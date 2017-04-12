@@ -35,13 +35,13 @@ public class QRGenerator {
 
         Hashtable<EncodeHintType, Object> hintMap = new Hashtable<>();
 
-        // H = ~30% correction
         // L = ~7%  correction
         // M = ~15% correction
         // Q = ~25% correction
-        hintMap.put(EncodeHintType.ERROR_CORRECTION, ErrorCorrectionLevel.H);
+        // H = ~30% correction
+        hintMap.put(EncodeHintType.ERROR_CORRECTION, ErrorCorrectionLevel.M);
         hintMap.put(EncodeHintType.CHARACTER_SET, "UTF-8");
-        hintMap.put(EncodeHintType.MARGIN, 1); /* default = 4 */
+//        hintMap.put(EncodeHintType.MARGIN, 1); /* default = 4 */
 
         QRCodeWriter qrCodeWriter = new QRCodeWriter();
         BitMatrix bitMatrix = qrCodeWriter.encode(content, BarcodeFormat.QR_CODE, qrCodeSize, qrCodeSize, hintMap);

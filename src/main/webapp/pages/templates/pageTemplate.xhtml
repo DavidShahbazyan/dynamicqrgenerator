@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui" xmlns:ui="http://java.sun.com/jsf/facelets"
+      lang="en">
+<h:head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Synergy QR code generator</title>
+
+    <!-- Bootstrap -->
+    <h:outputStylesheet library="main" name="css/bootstrap.min.css"/>
+    <h:outputStylesheet library="main" name="css/style.css"/>
+    <link rel="shortcut icon" href="${request.contextPath}/resources/main/images/qr-icon.png"/>
+
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</h:head>
+<h:body>
+    <f:view>
+        <header>
+            <h:outputLink styleClass="sis-logout-link" value="#">Log out</h:outputLink>
+            <h1 class="sis-title">Synergy QR code generator</h1>
+        </header>
+
+        <h:panelGroup layout="block" styleClass="container">
+            <ui:insert name="content"/>
+        </h:panelGroup>
+
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <h:outputScript src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"/>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <h:outputScript library="main" name="js/bootstrap.min.js"/>
+    </f:view>
+</h:body>
+</html>

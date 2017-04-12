@@ -1,24 +1,162 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
-<f:view>
-    <h:graphicImage url="#{mainController.image}"/>
-    <br/>
-    <h:outputLabel value="Hello, world!"/>
-    <br/>
-    <h:outputText value="ID: "/>
-    <h:outputText value="#{mainController.person.id}"/>
-    <br/>
-    <h:outputText value="First Name: "/>
-    <h:outputText value="#{mainController.person.fName}"/>
-    <br/>
-    <h:outputText value="Last Name: "/>
-    <h:outputText value="#{mainController.person.lName}"/>
-    <br/>
-    <h:outputText value="Birth Date: "/>
-    <h:outputText value="#{mainController.person.bDate}" converter="#{localDateTimeConverter}"/>
-</f:view>
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:pe="http://primefaces.org/ui/extensions"
+      lang="en">
+<h:head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Synergy QR code generator</title>
+
+    <!-- Bootstrap -->
+    <h:outputStylesheet library="main" name="css/bootstrap.min.css"/>
+    <h:outputStylesheet library="main" name="css/qr-code.css"/>
+    <link rel="shortcut icon" href="${request.contextPath}/resources/main/images/qr-icon.png"/>
+
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</h:head>
+<h:body>
+    <f:view>
+        <header>
+            <h:outputLink styleClass="sis-logout-link" value="#">Log out</h:outputLink>
+            <h1 class="sis-title">Synergy QR code generator</h1>
+        </header>
+        <h:panelGroup layout="block" styleClass="container">
+            <h:panelGroup layout="block" styleClass="row">
+                <h:panelGroup layout="block" styleClass="col-md-8">
+                    <nav class="sis-navigation">
+                        <ul>
+                            <li><a href="#">My QR's</a></li>
+                            <li><a href="#">Create Static QR</a></li>
+                            <li><a href="#">Create Dynamic QR</a></li>
+                        </ul>
+                    </nav>
+                </h:panelGroup>
+            </h:panelGroup>
+            <h:panelGroup layout="block" styleClass="row">
+                <h:panelGroup layout="block" styleClass="col-md-8 sis-pddb80">
+                    <h:panelGroup layout="block" styleClass="sis-white-background">
+                        <nav class="sis-submenu-navigation">
+                            <ul>
+                                <li><a href="#" title="">URL</a></li>
+                                <li><a href="#" title="">Text</a></li>
+                                <li><a href="#" title="">VCard</a></li>
+                            </ul>
+                        </nav>
+                        <form>
+                            <h:panelGroup layout="block" styleClass="row">
+                                <h:panelGroup layout="block" styleClass="col-md-6">
+                                    <p:inputText id="firstName" styleClass="form-control sis-mrg-bottom15 sis-input-padding"/>
+                                    <p:watermark for="firstName" value="First name"/>
+                                </h:panelGroup>
+                                <h:panelGroup layout="block" styleClass="col-md-6">
+                                    <p:inputText id="lastName" styleClass="form-control sis-mrg-bottom15 sis-input-padding"/>
+                                    <p:watermark for="lastName" value="Last name"/>
+                                </h:panelGroup>
+                                <h:panelGroup layout="block" styleClass="col-md-6">
+                                    <p:inputText id="company" styleClass="form-control sis-mrg-bottom15 sis-input-padding"/>
+                                    <p:watermark for="company" value="Company"/>
+                                </h:panelGroup>
+                                <h:panelGroup layout="block" styleClass="col-md-6">
+                                    <p:inputText id="jobTitle" styleClass="form-control sis-mrg-bottom15 sis-input-padding"/>
+                                    <p:watermark  for="jobTitle" value="Job title"/>
+                                </h:panelGroup>
+                            </h:panelGroup>
+                            <h:panelGroup layout="block" styleClass="row sis-mrg-top25">
+                                <h:panelGroup layout="block" styleClass="col-md-12">
+                                    <label>Address</label>
+                                </h:panelGroup>
+                                <h:panelGroup layout="block" styleClass="col-md-8">
+                                    <p:inputText id="street" styleClass="form-control sis-mrg-bottom15 sis-input-padding"/>
+                                    <p:watermark  for="street" value="Street"/>
+                                </h:panelGroup>
+                                <h:panelGroup layout="block" styleClass="col-md-4">
+                                    <p:inputText id="city" styleClass="form-control sis-mrg-bottom15 sis-input-padding"/>
+                                    <p:watermark  for="city" value="City"/>
+                                </h:panelGroup>
+                                <h:panelGroup layout="block" styleClass="col-md-6">
+                                    <p:inputText id="country" styleClass="form-control sis-mrg-bottom15 sis-input-padding"/>
+                                    <p:watermark  for="country" value="Country"/>
+                                </h:panelGroup>
+                                <h:panelGroup layout="block" styleClass="col-md-6">
+                                    <p:inputText id="state" styleClass="form-control sis-mrg-bottom15 sis-input-padding"/>
+                                    <p:watermark  for="state" value="State"/>
+                                </h:panelGroup>
+                            </h:panelGroup>
+                            <h:panelGroup  layout="block" styleClass="row sis-mrg-top25">
+                                <h:panelGroup layout="block" styleClass="col-md-12">
+                                    <label>Contacts</label>
+                                </h:panelGroup>
+                                <h:panelGroup layout="block" styleClass="col-md-4">
+                                    <p:inputText  id="phone" styleClass="form-control sis-mrg-bottom15 sis-input-padding"/>
+                                    <p:watermark  for="phone" value="Phone"/>
+                                </h:panelGroup>
+                                <h:panelGroup layout="block" styleClass="col-md-4">
+                                    <p:inputText id="mobile" styleClass="form-control sis-mrg-bottom15 sis-input-padding"/>
+                                    <p:watermark  for="mobile" value="Mobile"/>
+                                </h:panelGroup>
+                                <h:panelGroup layout="block" styleClass="col-md-4">
+                                    <p:inputText id="fax" styleClass="form-control sis-mrg-bottom15 sis-input-padding"/>
+                                    <p:watermark  for="fax" value="Fax"/>
+                                </h:panelGroup>
+                                <h:panelGroup layout="block" styleClass="col-md-6">
+                                    <p:inputText id="emailAddress" styleClass="form-control sis-mrg-bottom15 sis-input-padding"/>
+                                    <p:watermark  for="emailAddress" value="Email Address"/>
+                                </h:panelGroup>
+                                <h:panelGroup layout="block" styleClass="col-md-6">
+                                    <p:inputText id="website" styleClass="form-control sis-mrg-bottom15 sis-input-padding"/>
+                                    <p:watermark  for="website" value="Website"/>
+                                </h:panelGroup>
+                            </h:panelGroup>
+                        </form>
+                    </h:panelGroup>
+                </h:panelGroup>
+                <h:panelGroup layout="block" styleClass="col-md-4">
+                    <h:panelGroup layout="block" styleClass="sis-qr-background">
+                        <!--<img styleClass="sis-qr-image" src="${request.contextPath}/resources/main/images/qr-code-icon.png" alt="image"/>-->
+                        <h:graphicImage styleClass="sis-qr-image" url="#{mainController.image}"/>
+                        <ul class="sis-image-extension">
+                            <li class="sis-image-extension-line"><a href="#" title="">JPG</a></li>
+                            <li class="sis-image-extension-line"><a href="#" title="">PNG</a></li>
+                            <li class="sis-image-extension-line"><a href="#" title="">EPS</a></li>
+                            <li><a href="#" title="">SVG</a></li>
+                        </ul>
+                    </h:panelGroup>
+                    <button type="button"
+                            class="btn btn-primary btn-lg btn-block sis-mrg-top25 sis-mrg-bottom30">Download
+                    </button>
+                </h:panelGroup>
+            </h:panelGroup>
+        </h:panelGroup>
+
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <h:outputScript src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"/>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <h:outputScript library="main" name="js/bootstrap.min.js"/>
+    </f:view>
+</h:body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+

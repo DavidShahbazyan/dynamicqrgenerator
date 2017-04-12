@@ -21,7 +21,17 @@ public class MainController {
 
     @PostConstruct
     private void initPerson() {
-        this.person = new Person(1, "Arman", "Petrosyan", LocalDate.now().minusYears(20), "+37496013366");
+        this.person = new Person(1)
+                .setFirstName("Lusine")
+                .setLastName("Shirinyan")
+                .setCompany("Synergy International Systems")
+                .setBirthDate(LocalDate.now().minusYears(23))
+                .setPhone("+37494171106")
+                .setEmail("lusine.shirinyan@arm.synisys.com")
+                .setAddress("H.Nersisyan 6a shenq bn.9")
+                .setWebsite("www.blah.com")
+                .setNote("blah blah blah")
+        ;
     }
 
     public Person getPerson() {
@@ -34,7 +44,15 @@ public class MainController {
 
     public String getImage() throws IOException, WriterException {
 //        return "data:image/png;base64,";
-        QRTypeMeCard data = new QRTypeMeCard().setName(person.getfName() + ' ' + person.getlName()).setPhone(person.getPhone1());
+        QRTypeMeCard data = new QRTypeMeCard()
+                .setName(person.getFirstName() + ' ' + person.getLastName())
+                .setPhone(person.getPhone())
+                .setCompany(person.getCompany())
+                .setPhone(person.getPhone())
+                .setEmail(person.getEmail())
+                .setAddress(person.getAddress())
+                .setWebsite(person.getWebsite())
+                .setNote(person.getNote());
         return "data:image/png;base64," + QRGenerator.generateImageAsBase64(data);
     }
 }

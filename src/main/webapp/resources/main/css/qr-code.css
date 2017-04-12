@@ -1,0 +1,257 @@
+html,
+body,
+header,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+header,
+nav,
+ul,
+li,
+ol,
+a,
+p,
+div {
+	padding:0;
+	margin:0;
+}
+html {
+	font-family: Myriad Pro Regular, sans-serif;
+}
+body {
+	background-color: #00A9E7;
+	width: 100%;
+}
+
+.sis-title {
+	color: #FFFFFF;
+	font-family: "Times New Roman", Times, serif;
+	background-image: url("../images/qr-icon.png");
+	background-repeat: no-repeat;
+	background-position: center;
+    text-align: center;
+	padding: 90px 23px 2px 47px;
+}
+.sis-logout-link {
+	list-style-type: none;
+	color: #FFFFFF;
+	padding: 50px 45px 0 0;
+	float: right;
+
+}
+
+
+
+.sis-navigation li {
+	list-style-type: none;
+	display: inline-block;
+	padding: 50px 30px 20px 0;
+	font-family: arial,sans serif;
+	font-weight:bold;
+	font-size:12pt;
+	margin-top: 50px;
+}
+.sis-navigation a {
+	text-decoration: none;
+	color: #FFFFFF;
+	padding:10px;
+
+}
+.sis-navigation a:hover {
+	text-decoration: none;
+	color: #FFFFFF;
+	background-color: #57C6EF;
+	border-radius: 5px;
+}
+.sis-white-background {
+	background-color: #FFFFFF;
+	padding: 20px;
+	border-radius: 5px;
+
+}
+.sis-submenu-navigation li {
+	list-style-type: none;
+	display: inline-block;
+	padding: 10px 30px 0 0;
+	margin-bottom: 30px;
+}
+
+.sis-submenu-navigation a {
+	text-decoration: none;
+	padding: 10px;
+	color: #1C1C1C;
+
+}
+
+.sis-submenu-navigation a:hover {
+	text-decoration: none;
+	background-color: #2D5982;
+	border-radius: 3px;
+	color: #FFFFFF;
+
+
+}
+.sis-input-filed {
+	margin: 20px 0 0 20px;
+}
+
+.sis-input-filed input {
+	width: 40%;
+	height: 20px;
+	margin: 20px;
+}
+
+.sis-address-field .sis-address {
+	margin: 20px 0 -10px 20px;
+	font-weight: bold;
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+	font-size: 10pt;
+}
+
+.sis-address-field {
+	margin: 20px 0 0 20px;
+}
+
+.sis-address-field input{
+	width: 40%;
+	height: 20px;
+	margin: 20px;
+
+}
+.sis-address-field .sis-street-input {
+	width: 450px;
+}
+
+.sis-address-field .sis-city-input {
+	width: 301px;
+
+}
+.sis-contacts-field {
+	margin: 20px 0 0 20px;
+}
+
+.sis-contacts-field input {
+	width: 40%;
+	height: 20px;
+	margin: 20px;
+}
+.sis-bold {
+	 font-weight: bold;
+}
+
+.sis-qr-background {
+	background-color: #FFFFFF;
+	height: 340px;
+	border-radius: 5px;
+
+}
+.sis-qr-image {
+	display: block;
+	margin: 0 auto;
+	padding-top: 60px;
+}
+
+.sis-image-extension {
+	text-align: center;
+	margin-top: 20px;
+}
+.sis-image-extension-line {
+	padding-right: 5px;
+	border-right: 1px solid #aaaaaa;
+}
+.sis-image-extension li {
+	display: inline-block;
+}
+.sis-image-extension li >a {
+	color: #aaaaaa;
+	font-weight: bold;
+	font-size: 12pt;
+}
+.sis-image-extension li >a:hover {
+	color: #3ecef6;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+
+  /*Margins*/
+
+.sis-mrg-bottom5 {
+	margin-bottom: 5px;
+}
+
+.sis-mrg-bottom30 {
+	margin-bottom: 30px;
+}
+
+.sis-mrg-top25 {
+	margin-top: 25px;
+}
+.sis-mrg-bottom15 {
+	margin-bottom: 15px !important;
+}
+
+/*Padding*/
+
+.sis-padding-left10 {
+	padding-left: 5px;
+}
+
+.sis-pddb80 {
+	padding-bottom: 80px;
+}
+.sis-input-padding {
+	padding: 6px 12px !important;
+}
+
+/*media*/
+
+@media only screen and (max-width: 543px){
+	.sis-navigation li {
+		text-size: 8pt;
+		padding: 0;
+		margin-bottom: 20px;
+		margin-top: 80px;
+	}
+
+	.sis-title {
+		color: #FFFFFF;
+		font-family: "Times New Roman", Times, serif;
+		background-image: url(../images/qr-icon.png);
+		background-repeat: no-repeat;
+		background-position: center;
+		text-align: center;
+		padding: 125px 23px 2px 47px;
+
+
+}
+	@media only screen and (max-width: 360px) {
+		.sis-navigation li {
+			text-size: 5pt;
+			padding: 0;
+
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

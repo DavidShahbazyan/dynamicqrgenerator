@@ -8,57 +8,98 @@ import java.time.LocalDate;
  */
 public class Person {
     private Integer id;
-    private String fName;
-    private String lName;
-    private LocalDate bDate;
-    private String phone1;
+    private String firstName;
+    private String lastName;
+    private String company;
+    private LocalDate birthDate;
+    private String phone;
+    private String email;
+    private String address;
+    private String website;
+    private String note;
 
-
-    public Person(Integer id, String fName, String lName, LocalDate bDate, String phone1) {
+    public Person(Integer id) {
         this.id = id;
-        this.fName = fName;
-        this.lName = lName;
-        this.bDate = bDate;
-        this.phone1 = phone1;
     }
+
 
     public Integer getId() {
         return id;
     }
-
-    public void setId(Integer id) {
+    public Person setId(Integer id) {
         this.id = id;
+        return this;
     }
 
-    public String getfName() {
-        return fName;
+    public String getFirstName() {
+        return firstName;
+    }
+    public Person setFirstName(String firstName) {
+        this.firstName = firstName;
+        return this;
     }
 
-    public void setfName(String fName) {
-        this.fName = fName;
+    public String getLastName() {
+        return lastName;
+    }
+    public Person setLastName(String lastName) {
+        this.lastName = lastName;
+        return this;
     }
 
-    public String getlName() {
-        return lName;
+    public String getCompany() {
+        return company;
+    }
+    public Person setCompany(String company) {
+        this.company = company;
+        return this;
     }
 
-    public void setlName(String lName) {
-        this.lName = lName;
+    public LocalDate getBirthDate() {
+        return birthDate;
+    }
+    public Person setBirthDate(LocalDate birthDate) {
+        this.birthDate = birthDate;
+        return this;
     }
 
-    public LocalDate getbDate() {
-        return bDate;
+    public String getPhone() {
+        return phone;
+    }
+    public Person setPhone(String phone) {
+        this.phone = phone;
+        return this;
     }
 
-    public void setbDate(LocalDate bDate) {
-        this.bDate = bDate;
+    public String getEmail() {
+        return email;
+    }
+    public Person setEmail(String email) {
+        this.email = email;
+        return this;
     }
 
-    public String getPhone1() {
-        return phone1;
+    public String getAddress() {
+        return address;
+    }
+    public Person setAddress(String address) {
+        this.address = address;
+        return this;
     }
 
-    public void setPhone1(String phone1) {
-        this.phone1 = phone1;
+    public String getWebsite() {
+        return website;
+    }
+    public Person setWebsite(String website) {
+        this.website = website;
+        return this;
+    }
+
+    public String getNote() {
+        return note;
+    }
+    public Person setNote(String note) {
+        this.note = note;
+        return this;
     }
 }

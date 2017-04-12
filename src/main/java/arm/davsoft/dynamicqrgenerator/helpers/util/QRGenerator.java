@@ -23,7 +23,7 @@ import java.util.Hashtable;
  */
 public class QRGenerator {
     public static BufferedImage generateImage(QRType data) throws WriterException {
-        int qrCodeSize = 100;
+        int qrCodeSize = 200;
 
         String content = data.getData();
 //        String content = new QRTypeWiFiNetwork()
@@ -41,7 +41,7 @@ public class QRGenerator {
         // Q = ~25% correction
         hintMap.put(EncodeHintType.ERROR_CORRECTION, ErrorCorrectionLevel.H);
         hintMap.put(EncodeHintType.CHARACTER_SET, "UTF-8");
-//        hintMap.put(EncodeHintType.MARGIN, 0); /* default = 4 */
+        hintMap.put(EncodeHintType.MARGIN, 1); /* default = 4 */
 
         QRCodeWriter qrCodeWriter = new QRCodeWriter();
         BitMatrix bitMatrix = qrCodeWriter.encode(content, BarcodeFormat.QR_CODE, qrCodeSize, qrCodeSize, hintMap);

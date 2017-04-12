@@ -1,0 +1,13 @@
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui" xmlns:pe="http://primefaces.org/ui/extensions">
+    <h:form enctype="multipart/form-data">
+        <h:panelGroup layout="block" styleClass="row">
+            <h:panelGroup layout="block" styleClass="col-md-12">
+                <p:inputText id="url"
+                             styleClass="form-control sis-mrg-bottom15 sis-input-padding"/>
+                <p:watermark for="url" value="URL"/>
+            </h:panelGroup>
+        </h:panelGroup>
+    </h:form>
+</ui:composition>

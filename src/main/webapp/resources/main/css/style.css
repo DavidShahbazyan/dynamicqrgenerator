@@ -29,7 +29,7 @@ body {
 .sis-title {
 	color: #FFFFFF;
 	font-family: "Times New Roman", Times, serif;
-	background-image: url("../images/qr-icon.png");
+	background-image: url("/resources/main/images/qr-icon.png");
 	background-repeat: no-repeat;
 	background-position: center;
     text-align: center;
@@ -204,7 +204,10 @@ body {
 .sis-input-padding {
 	padding: 6px 12px !important;
 }
-
+.sis-button-style {
+	box-shadow: none !important;
+	padding: 5px !important;
+}
 /*media*/
 
 @media only screen and (max-width: 543px){
@@ -218,7 +221,7 @@ body {
 	.sis-title {
 		color: #FFFFFF;
 		font-family: "Times New Roman", Times, serif;
-		background-image: url(../images/qr-icon.png);
+		background-image: url(/resources/main/images/qr-icon.png);
 		background-repeat: no-repeat;
 		background-position: center;
 		text-align: center;

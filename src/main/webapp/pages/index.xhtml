@@ -1,10 +1,8 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
-      xmlns:p="http://primefaces.org/ui"
-      xmlns:pe="http://primefaces.org/ui/extensions"
+      xmlns:p="http://primefaces.org/ui" xmlns:ui="http://java.sun.com/jsf/facelets"
       lang="en">
 <h:head>
     <meta charset="utf-8"/>
@@ -37,9 +35,9 @@
                 <h:panelGroup layout="block" styleClass="col-md-8">
                     <nav class="sis-navigation">
                         <ul>
-                            <li><a href="#">My QR's</a></li>
-                            <li><a href="#">Create Static QR</a></li>
-                            <li><a href="#">Create Dynamic QR</a></li>
+                            <li><h:outputLink value="#">My QR's</h:outputLink></li>
+                            <li><h:outputLink value="#">Create Static QR</h:outputLink></li>
+                            <li><h:outputLink value="#">Create Dynamic QR</h:outputLink></li>
                         </ul>
                     </nav>
                 </h:panelGroup>
@@ -49,77 +47,14 @@
                     <h:panelGroup layout="block" styleClass="sis-white-background">
                         <nav class="sis-submenu-navigation">
                             <ul>
-                                <li><a href="#" title="">URL</a></li>
-                                <li><a href="#" title="">Text</a></li>
-                                <li><a href="#" title="">VCard</a></li>
+                                <li><h:outputLink value="#">URL</h:outputLink></li>
+                                <li><h:outputLink value="#">Text</h:outputLink></li>
+                                <li><h:outputLink value="#">VCard</h:outputLink></li>
                             </ul>
                         </nav>
-                        <form>
-                            <h:panelGroup layout="block" styleClass="row">
-                                <h:panelGroup layout="block" styleClass="col-md-6">
-                                    <p:inputText id="firstName" styleClass="form-control sis-mrg-bottom15 sis-input-padding"/>
-                                    <p:watermark for="firstName" value="First name"/>
-                                </h:panelGroup>
-                                <h:panelGroup layout="block" styleClass="col-md-6">
-                                    <p:inputText id="lastName" styleClass="form-control sis-mrg-bottom15 sis-input-padding"/>
-                                    <p:watermark for="lastName" value="Last name"/>
-                                </h:panelGroup>
-                                <h:panelGroup layout="block" styleClass="col-md-6">
-                                    <p:inputText id="company" styleClass="form-control sis-mrg-bottom15 sis-input-padding"/>
-                                    <p:watermark for="company" value="Company"/>
-                                </h:panelGroup>
-                                <h:panelGroup layout="block" styleClass="col-md-6">
-                                    <p:inputText id="jobTitle" styleClass="form-control sis-mrg-bottom15 sis-input-padding"/>
-                                    <p:watermark  for="jobTitle" value="Job title"/>
-                                </h:panelGroup>
-                            </h:panelGroup>
-                            <h:panelGroup layout="block" styleClass="row sis-mrg-top25">
-                                <h:panelGroup layout="block" styleClass="col-md-12">
-                                    <label>Address</label>
-                                </h:panelGroup>
-                                <h:panelGroup layout="block" styleClass="col-md-8">
-                                    <p:inputText id="street" styleClass="form-control sis-mrg-bottom15 sis-input-padding"/>
-                                    <p:watermark  for="street" value="Street"/>
-                                </h:panelGroup>
-                                <h:panelGroup layout="block" styleClass="col-md-4">
-                                    <p:inputText id="city" styleClass="form-control sis-mrg-bottom15 sis-input-padding"/>
-                                    <p:watermark  for="city" value="City"/>
-                                </h:panelGroup>
-                                <h:panelGroup layout="block" styleClass="col-md-6">
-                                    <p:inputText id="country" styleClass="form-control sis-mrg-bottom15 sis-input-padding"/>
-                                    <p:watermark  for="country" value="Country"/>
-                                </h:panelGroup>
-                                <h:panelGroup layout="block" styleClass="col-md-6">
-                                    <p:inputText id="state" styleClass="form-control sis-mrg-bottom15 sis-input-padding"/>
-                                    <p:watermark  for="state" value="State"/>
-                                </h:panelGroup>
-                            </h:panelGroup>
-                            <h:panelGroup  layout="block" styleClass="row sis-mrg-top25">
-                                <h:panelGroup layout="block" styleClass="col-md-12">
-                                    <label>Contacts</label>
-                                </h:panelGroup>
-                                <h:panelGroup layout="block" styleClass="col-md-4">
-                                    <p:inputText  id="phone" styleClass="form-control sis-mrg-bottom15 sis-input-padding"/>
-                                    <p:watermark  for="phone" value="Phone"/>
-                                </h:panelGroup>
-                                <h:panelGroup layout="block" styleClass="col-md-4">
-                                    <p:inputText id="mobile" styleClass="form-control sis-mrg-bottom15 sis-input-padding"/>
-                                    <p:watermark  for="mobile" value="Mobile"/>
-                                </h:panelGroup>
-                                <h:panelGroup layout="block" styleClass="col-md-4">
-                                    <p:inputText id="fax" styleClass="form-control sis-mrg-bottom15 sis-input-padding"/>
-                                    <p:watermark  for="fax" value="Fax"/>
-                                </h:panelGroup>
-                                <h:panelGroup layout="block" styleClass="col-md-6">
-                                    <p:inputText id="emailAddress" styleClass="form-control sis-mrg-bottom15 sis-input-padding"/>
-                                    <p:watermark  for="emailAddress" value="Email Address"/>
-                                </h:panelGroup>
-                                <h:panelGroup layout="block" styleClass="col-md-6">
-                                    <p:inputText id="website" styleClass="form-control sis-mrg-bottom15 sis-input-padding"/>
-                                    <p:watermark  for="website" value="Website"/>
-                                </h:panelGroup>
-                            </h:panelGroup>
-                        </form>
+                        <h:form enctype="multipart/form-data">
+                            <ui:include src="vCard.xhtml"/>
+                        </h:form>
                     </h:panelGroup>
                 </h:panelGroup>
                 <h:panelGroup layout="block" styleClass="col-md-4">
@@ -133,9 +68,7 @@
                             <li><a href="#" title="">SVG</a></li>
                         </ul>
                     </h:panelGroup>
-                    <button type="button"
-                            class="btn btn-primary btn-lg btn-block sis-mrg-top25 sis-mrg-bottom30">Download
-                    </button>
+                    <p:commandButton styleClass="btn btn-primary btn-lg btn-block sis-mrg-top25 sis-mrg-bottom30" value="Download"/>
                 </h:panelGroup>
             </h:panelGroup>
         </h:panelGroup>

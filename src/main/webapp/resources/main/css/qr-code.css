@@ -83,7 +83,6 @@ body {
 	text-decoration: none;
 	padding: 10px;
 	color: #1C1C1C;
-
 }
 
 .sis-submenu-navigation a:hover {
@@ -91,9 +90,8 @@ body {
 	background-color: #2D5982;
 	border-radius: 3px;
 	color: #FFFFFF;
-
-
 }
+
 .sis-input-filed {
 	margin: 20px 0 0 20px;
 }

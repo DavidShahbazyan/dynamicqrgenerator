@@ -1,7 +1,6 @@
 package arm.davsoft.dynamicqrgenerator.helpers.util;
 
 import arm.davsoft.dynamicqrgenerator.model.api.QRType;
-import arm.davsoft.dynamicqrgenerator.model.impl.QRTypeWiFiNetwork;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.EncodeHintType;
 import com.google.zxing.WriterException;
@@ -26,12 +25,6 @@ public class QRGenerator {
         int qrCodeSize = 200;
 
         String content = data.getData();
-//        String content = new QRTypeWiFiNetwork()
-//                .setSsid("DavSoft-WiFi-2")
-//                .setPass("eYn4$dyRKMN*GJK")
-//                .setType("WPA")
-//                .getData();
-//        content.append("eYn4$dyRKMN*GJK");
 
         Hashtable<EncodeHintType, Object> hintMap = new Hashtable<>();
 

@@ -1,0 +1,47 @@
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html" xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://java.sun.com/jsf/core" template="templates/layout.xhtml">
+
+    <ui:define name="title">New Static QR</ui:define>
+
+    <ui:define name="header">
+        <header>
+            <p:commandLink action="#{loginController.logout}" styleClass="logout-link" value="Log out" process="@this"/>
+            <h1 class="title">Synergy QR code generator</h1>
+        </header>
+    </ui:define>
+
+    <ui:define name="content">
+        <h:panelGroup layout="block" styleClass="row">
+            <h:panelGroup layout="block" styleClass="col-md-8">
+                <nav class="navigation">
+                    <ul>
+                        <li><h:outputLink value="#">My QR's</h:outputLink></li>
+                        <li><h:outputLink value="#">Create Static QR</h:outputLink></li>
+                        <li><h:outputLink value="#">Create Dynamic QR</h:outputLink></li>
+                    </ul>
+                </nav>
+            </h:panelGroup>
+        </h:panelGroup>
+        <h:panelGroup layout="block" styleClass="row">
+            <h:panelGroup layout="block" styleClass="col-md-8 pddb80">
+                <h:panelGroup layout="block" styleClass="white-background">
+                    <ui:include src="views/newStaticQR.xhtml"/>
+                </h:panelGroup>
+            </h:panelGroup>
+            <h:panelGroup layout="block" styleClass="col-md-4">
+                <h:panelGroup layout="block" styleClass="qr-background">
+                    <!--<img styleClass="sis-qr-image" src="${request.contextPath}/resources/main/images/qr-code-icon.png" alt="image"/>-->
+                    <h:graphicImage styleClass="qr-image" url="#{mainController.image}"/>
+                    <ul class="image-extension">
+                        <li class="image-extension-line"><a href="#" title="">JPG</a></li>
+                        <li class="image-extension-line"><a href="#" title="">PNG</a></li>
+                        <li class="image-extension-line"><a href="#" title="">EPS</a></li>
+                        <li><a href="#" title="">SVG</a></li>
+                    </ul>
+                </h:panelGroup>
+                <p:commandButton styleClass="btn btn-primary btn-lg btn-block mrg-top25 button-style mrg-bottom30" value="Download"/>
+            </h:panelGroup>
+        </h:panelGroup>
+    </ui:define>
+</ui:composition>

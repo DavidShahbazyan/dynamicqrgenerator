@@ -7,11 +7,5 @@
         <el-resolver>org.springframework.web.jsf.el.SpringBeanFacesELResolver</el-resolver>
     </application>
 
-    <!-- for input- and output-components that use explicit af:convertDateTime -->
-    <!--<converter>-->
-        <!--<display-name>Date Time Converter</display-name>-->
-        <!--<converter-id>org.apache.myfaces.trinidad.DateTime</converter-id>-->
-        <!--<converter-class>com.synisys.de.commons.ui.converter.DateTimeConverter</converter-class>-->
-    <!--</converter>-->
 
 </faces-config>

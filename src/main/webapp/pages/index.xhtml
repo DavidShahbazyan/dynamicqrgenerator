@@ -1,38 +1,81 @@
-<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns="http://www.w3.org/1999/xhtml"
-                xmlns:h="http://java.sun.com/jsf/html" xmlns:p="http://primefaces.org/ui">
-    <ui:decorate template="templates/pageTemplate.xhtml">
-        <ui:define name="content">
-            <h:panelGroup layout="block" styleClass="row">
-                <h:panelGroup layout="block" styleClass="col-md-8">
-                    <nav class="sis-navigation">
-                        <ul>
-                            <li><h:outputLink value="#">My QR's</h:outputLink></li>
-                            <li><h:outputLink value="#">Create Static QR</h:outputLink></li>
-                            <li><h:outputLink value="#">Create Dynamic QR</h:outputLink></li>
-                        </ul>
-                    </nav>
-                </h:panelGroup>
-            </h:panelGroup>
-            <h:panelGroup layout="block" styleClass="row">
-                <h:panelGroup layout="block" styleClass="col-md-8 sis-pddb80">
-                    <h:panelGroup layout="block" styleClass="sis-white-background">
-                        <ui:include src="views/newStaticQR.xhtml"/>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      lang="en">
+<h:head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title><ui:insert name="title"/> - Synergy QR Code Generator</title>
+
+    <!-- Bootstrap -->
+    <h:outputStylesheet library="main" name="css/bootstrap.min.css"/>
+    <h:outputStylesheet library="main" name="css/style.css"/>
+    <link rel="shortcut icon" href="${request.contextPath}/resources/main/images/qr-icon.png"/>
+
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</h:head>
+<h:body>
+    <f:view>
+        <h:form>
+            <p:growl autoUpdate="true"/>
+
+            <h:panelGroup layout="block" styleClass="container">
+                <p:dialog id="loginDialogId" widgetVar="loginDialog" draggable="false" dynamic="true" modal="true" resizable="false"
+                          closeOnEscape="true" position="center center">
+                    <f:view>
+                        <h:form>
+                            <h3>Login Application in JSF 2</h3>
+                            <b><h:outputText value="#{loginController.msg}"/></b>
+                            <br/><br/>
+
+                            <h:outputLabel value="User Name:"/>
+                            <h:inputText value="#{loginController.user}"/><br/>
+                            <h:outputLabel value="Password:"/>
+                            <h:inputSecret value="#{loginController.pass}"/><br/>
+                            <h:commandButton value="Login" action="#{loginController.validateUsernamePassword}"/>
+                        </h:form>
+                    </f:view>
+                </p:dialog>
+                <header>
+                    <p:commandLink styleClass="logout-link" value="Log in" onclick="PF('loginDialog').show();" process="@this"/>
+                    <h1 class="title">Synergy QR code generator</h1>
+                </header>
+
+
+
+                <h:panelGroup layout="block" styleClass="row">
+                    <h:panelGroup layout="block" styleClass="col-md-8 pddb80">
+                        <h:panelGroup layout="block" styleClass="white-background">
+                            <ui:include src="views/newStaticQR.xhtml"/>
+                        </h:panelGroup>
+                    </h:panelGroup>
+                    <h:panelGroup layout="block" styleClass="col-md-4">
+                        <ui:include src="templates/qr-part.xhtml"/>
                     </h:panelGroup>
                 </h:panelGroup>
-                <h:panelGroup layout="block" styleClass="col-md-4">
-                    <h:panelGroup layout="block" styleClass="sis-qr-background">
-                        <!--<img styleClass="sis-qr-image" src="${request.contextPath}/resources/main/images/qr-code-icon.png" alt="image"/>-->
-                        <h:graphicImage styleClass="sis-qr-image" url="#{mainController.image}"/>
-                        <ul class="sis-image-extension">
-                            <li class="sis-image-extension-line"><a href="#" title="">JPG</a></li>
-                            <li class="sis-image-extension-line"><a href="#" title="">PNG</a></li>
-                            <li class="sis-image-extension-line"><a href="#" title="">EPS</a></li>
-                            <li><a href="#" title="">SVG</a></li>
-                        </ul>
-                    </h:panelGroup>
-                    <p:commandButton styleClass="btn btn-primary btn-lg btn-block sis-mrg-top25 sis-button-style sis-mrg-bottom30" value="Download"/>
-                </h:panelGroup>
+
+
+
+
+                <ui:insert name="content"/>
             </h:panelGroup>
-        </ui:define>
-    </ui:decorate>
-</ui:composition>
+
+            <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+            <h:outputScript src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"/>
+            <!-- Include all compiled plugins (below), or include individual files as needed -->
+            <h:outputScript library="main" name="js/bootstrap.min.js"/>
+        </h:form>
+    </f:view>
+</h:body>
+</html>

@@ -1,13 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:context="http://www.springframework.org/schema/context" xmlns:p="http://www.springframework.org/schema/p"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
     <context:component-scan base-package="arm.davsoft.dynamicqrgenerator"/>
 
+    <bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource" destroy-method="close">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="jdbcUrl" value="jdbc:mysql://sql8.freemysqlhosting.net/sql8173688"/>
+        <property name="username" value="sql8173688"/>
+        <property name="password" value="dPBhNpX8hL"/>
+        <property name="connectionTestQuery" value="SELECT 1"/>
+    </bean>
+
+    <bean id="loginController" class="arm.davsoft.dynamicqrgenerator.controller.LoginController" scope="request"
+          p:userDao-ref="userDao"/>
+
     <bean id="mainController" class="arm.davsoft.dynamicqrgenerator.controller.MainController" scope="request"/>
 
     <bean id="localDateTimeConverter" class="arm.davsoft.dynamicqrgenerator.helpers.converter.LocalDateTimeConverter" scope="request"/>
+
+
+    <!-- Imports -->
+    <import resource="dao.xml"/>
 
 </beans>

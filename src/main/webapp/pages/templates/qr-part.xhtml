@@ -1,0 +1,17 @@
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html" xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://java.sun.com/jsf/core">
+
+    <h:panelGroup layout="block" styleClass="qr-background">
+        <!--<img styleClass="sis-qr-image" src="${request.contextPath}/resources/main/images/qr-code-icon.png" alt="image"/>-->
+        <h:graphicImage styleClass="qr-image" url="#{mainController.image}"/>
+        <ul class="image-extension">
+            <li class="image-extension-line"><a href="#" title="">JPG</a></li>
+            <li class="image-extension-line"><a href="#" title="">PNG</a></li>
+            <li class="image-extension-line"><a href="#" title="">EPS</a></li>
+            <li><a href="#" title="">SVG</a></li>
+        </ul>
+    </h:panelGroup>
+    <p:commandButton styleClass="btn btn-primary btn-lg btn-block mrg-top25 button-style mrg-bottom30" value="Download"/>
+
+</ui:composition>
